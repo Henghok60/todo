@@ -72,7 +72,7 @@ export default function Todo() {
   const search = (value: string) => {
     setKeyword(value);
     if (value) {
-      const pattern = new RegExp(`${value}.*`, "gm");
+      const pattern = new RegExp(`${value}*`, "gm");
       setList(prev.filter((item) => pattern.test(item.todo)));
     } else {
       setList(prev);
