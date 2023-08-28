@@ -28,10 +28,17 @@ export default function Card({ data, updateValue }: { data: Todo; updateValue: a
               className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
               onChange={updateStatus}
             />
-
-            <label htmlFor="checked-box" className="ml-2 text-sm font-medium  ">
-              {data.todo}
-            </label>
+            {data.isCompleted ? (
+              <>
+                <del className="ml-2 text-sm font-medium  ">{data.todo}</del>
+              </>
+            ) : (
+              <>
+                <label htmlFor="checked-box" className="ml-2 text-sm font-medium  ">
+                  {data.todo}
+                </label>
+              </>
+            )}
           </div>
           <div className="flex">
             <BiEdit className="text-slate-700 mx-2" onClick={emitValue}></BiEdit>
